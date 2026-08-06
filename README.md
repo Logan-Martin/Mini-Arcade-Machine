@@ -12,7 +12,7 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
 | Wires | x? |
 | Pushbutton | x2 |
 | Joystick | x1 |
-| LCD Screen | x1 |
+| LCD Screen [2.8" TFT ILI 9341] | x1 |
 | ? Nuts | x? |
 | ? Screws | x? |
 | ? Nuts | x?|
