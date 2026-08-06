@@ -22,3 +22,4 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
 8/5/2026:
 - Started Project
 - V1 of CAD Model: https://cad.onshape.com/documents/1f67ee2ecc3e3aa01e412fcf/w/54ba2dbc630de261fbd7408a/e/83f6dcfcd872f677a0073c63?renderMode=0&uiState=6a73e49e044e03fd4e4e218f
+- Note: When using Box Joint add-on, make sure walls intersect geometry with each other. 
