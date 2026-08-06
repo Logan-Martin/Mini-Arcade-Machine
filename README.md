@@ -8,7 +8,7 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
 ### Materials
 |Type |Quantity |
 |--- | --- |
-| Microcontroller | x1 |
+| Microcontroller [Arduino Uno] | x1 |
 | Wires | x? |
 | Pushbutton | x2 |
 | Joystick | x1 |
@@ -23,3 +23,6 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
 - Started Project
 - V1 of CAD Model: https://cad.onshape.com/documents/1f67ee2ecc3e3aa01e412fcf/w/54ba2dbc630de261fbd7408a/e/83f6dcfcd872f677a0073c63?renderMode=0&uiState=6a73e49e044e03fd4e4e218f
 - Note: When using Box Joint add-on, make sure walls intersect geometry with each other. 
+
+8/6/2026:
+- Video showcasing same LCD Screen: https://www.youtube.com/watch?v=0-aUxdmCEgg
