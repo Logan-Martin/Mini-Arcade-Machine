@@ -33,3 +33,6 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
        - <img width="898" height="718" alt="image" src="https://github.com/user-attachments/assets/63a1ef20-1365-49e2-a37a-62f0f2bc7138" />
    - Physically laser cut Bottom and Front pieces to test fit on a small scale. Screws & nuts are limited in quantity with varying sizes. Assembly will be frustrating.
      - Take away: Use smaller screws to make a smaller hole so a full circle can fit on the thin material.
+- Start of Wiring:
+- <img width="1480" height="759" alt="image" src="https://github.com/user-attachments/assets/853d3d26-c098-4ff8-ae2c-0ad57f597f7c" />
+ 
