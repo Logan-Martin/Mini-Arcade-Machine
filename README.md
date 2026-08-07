@@ -27,7 +27,9 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
 
 8/6/2026:
 - Video showcasing same LCD Screen: https://www.youtube.com/watch?v=0-aUxdmCEgg
-   - Datasheet Doc on LCD: https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf 
+   - Datasheet Doc on LCD: https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf
+   - <img width="516" height="452" alt="image" src="https://github.com/user-attachments/assets/5cf0746e-76ce-41c1-95c5-6dc3673c946d" />
+
 - Update on CAD:
    - Used T-Slot Joint add-on in OnShape for screw inserts.
    - Made Drawings for each part with a total of 3 sheets with 1 being a test sheet. Everything can fit on two wooden sheets:
