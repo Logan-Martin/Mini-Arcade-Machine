@@ -16,6 +16,19 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
 | ? Nuts | x? |
 | ? Screws | x? |
 
+### Code Dependencies
+The [Main] library is "Adafruit ILI9341:1.6.3" which has its own dependencies.
+The library can be found by typing "ILI9341" in the Library Manager in the Arduino IDE App. 
+
+When installing, there should be a pop-up asking to download the dependencies.
+These are:
+- Adafruit BusIO
+- Adafruit GFX Library
+- Adafruit SH110X
+- Adafruit STMPE610
+- Adafruit TSC2007
+- Adafruit TouchScreen
+
 ### Updates
 
 8/5/2026:
