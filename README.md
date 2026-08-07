@@ -50,5 +50,8 @@ These are:
    - Physically laser cut Bottom and Front pieces to test fit on a small scale. Screws & nuts are limited in quantity with varying sizes. Assembly will be frustrating.
      - Take away: Use smaller screws to make a smaller hole so a full circle can fit on the thin material.
 - Start of Wiring:
-- <img width="1480" height="759" alt="image" src="https://github.com/user-attachments/assets/853d3d26-c098-4ff8-ae2c-0ad57f597f7c" />
+   - <img width="1480" height="759" alt="image" src="https://github.com/user-attachments/assets/853d3d26-c098-4ff8-ae2c-0ad57f597f7c" />
+- Updated: [Same-day, only LCD Screen wiring diagram]
+   - <img width="1296" height="732" alt="image" src="https://github.com/user-attachments/assets/7a94b132-7932-4708-9d95-ba036317fb0d" />
+
  
