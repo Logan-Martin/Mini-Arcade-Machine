@@ -57,7 +57,13 @@ These are:
 8/10/2026:
 - Tried running old library on Arduino Uno and it didn't work. Looked online, AI says the library doesn't match my LCD despite the video.
 - I tried a new library "mcufriend_kbv," as AI suggested. Running it tells me the Arduino Uno doesn't have enough memory. Thus, I've switched the an Arduino Mega board [Mega 2560 Rev3].
+- Running the library on the Arduino Mega, I get the following errors:
+```
+Error: timeout
+Error: timeout communicating with programmer
+Error: failed to execute command 0x13
+Error: write command failed
+ ```
 - Important links:
    - Arduino docs of board: https://docs.arduino.cc/hardware/mega-2560/
-
  
