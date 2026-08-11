@@ -69,3 +69,4 @@ Error: write command failed
 
  8/11/2026:
  - Trying this now: [https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/](https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/)
+ - Edit: IT WORKS! Just need to follow instructions by guide above. Download each library, put the LCD on the arduino [soldering holes side facing away from cord port], copy the code, make sure the board is connected via the IDE, verify the code with the IDE button, if no errors, run the code.
