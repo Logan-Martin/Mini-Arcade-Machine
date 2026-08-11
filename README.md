@@ -2,8 +2,9 @@
 With this project, I hope to mix my love for engineering and video game development by creating a video game for a custom machine.
 Documentation will eventually feature a wiring diagram, final OnShape CAD model, a code flowchart, and updates.
 
-<img width="595" height="772" alt="image" src="https://github.com/user-attachments/assets/180d8530-0a75-49bb-89e5-ec37b06f4cd9" />
+<img width="298" height="386" alt="image" src="https://github.com/user-attachments/assets/180d8530-0a75-49bb-89e5-ec37b06f4cd9" />
 
+---
 
 ### Materials
 |Type |Quantity |
@@ -29,8 +30,17 @@ These are:
 - Adafruit TSC2007
 - Adafruit TouchScreen
 
+---
+
 ### Updates
 
+#### Latest Update:
+ 8/11/2026:
+ - Trying this now: [https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/](https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/)
+ - Edit: IT WORKS! Just need to follow instructions by guide above. Download each library, put the LCD on the arduino [soldering holes side facing away from cord port], copy the code, make sure the board is connected via the IDE, verify the code with the IDE button, if no errors, run the code.
+
+<details>
+<summary>Previous Updates [Click to Open Dropdown]</summary>
 8/5/2026:
 - Started Project
 - V1 of CAD Model: https://cad.onshape.com/documents/1f67ee2ecc3e3aa01e412fcf/w/54ba2dbc630de261fbd7408a/e/83f6dcfcd872f677a0073c63?renderMode=0&uiState=6a73e49e044e03fd4e4e218f
@@ -67,6 +77,4 @@ Error: write command failed
 - Important links:
    - Arduino docs of board: https://docs.arduino.cc/hardware/mega-2560/
 
- 8/11/2026:
- - Trying this now: [https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/](https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/)
- - Edit: IT WORKS! Just need to follow instructions by guide above. Download each library, put the LCD on the arduino [soldering holes side facing away from cord port], copy the code, make sure the board is connected via the IDE, verify the code with the IDE button, if no errors, run the code.
+</details>
