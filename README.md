@@ -66,4 +66,6 @@ Error: write command failed
  ```
 - Important links:
    - Arduino docs of board: https://docs.arduino.cc/hardware/mega-2560/
- 
+
+ 8/11/2026:
+ - Trying this now: [https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/](https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/)
