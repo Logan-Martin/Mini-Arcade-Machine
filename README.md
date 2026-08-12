@@ -22,6 +22,12 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
 ### Updates
 
 #### Latest Update:
+8/12/2026:
+- Attempted to solder wires to arcade pushbuttons, but the soldering iron had issues. Eventually I found it was oxidation on the tip. After resetting the soldering iron, checking temperature, and trying to de-oxidize it with the copper shavings in the soldering station, I found it ineffective. After letting it cool down, I will replace the tip with a new one.
+- CAD improvements: smaller holes for screws available, and smaller height to save material and wiring. Modeled a fake Arduino mega, push button, LCD screen, and joystick with a ball joint and put into an assembly for testing fit:
+   - <img width="320" height="351" alt="image" src="https://github.com/user-attachments/assets/b4b0ca74-928d-4694-a129-cd8a7897a6c5" />
+  
+
  8/11/2026:
  - Trying this now: [https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/](https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/)
  - Edit: IT WORKS! Just need to follow instructions by guide above. Download each library, put the LCD on the arduino [soldering holes side facing away from cord port], copy the code, make sure the board is connected via the IDE, verify the code with the IDE button, if no errors, run the code.
