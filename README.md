@@ -14,8 +14,12 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
 | Pushbutton | x2 |
 | Joystick | x1 |
 | LCD Screen [2.8" TFT ILI 9341] | x1 |
-| ? Nuts | x? |
-| ? Screws | x? |
+| M2 Nuts | x14 |
+| M2 x 12mm length Screws | x14 |
+
+Note: The arcade pushbuttons I used required soldering. 
+That requires soldering iron, solder itself, wire to strip [wire stripper needed], copper shavings, sponge. 
+Soldering fume extractor not required, but can be good to have as well as a stand with clips to hold what you're soldering and/or mat to solder on.
 
 ---
 
