@@ -30,6 +30,8 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 - Attempted to solder wires to arcade pushbuttons, but the soldering iron had issues. Eventually I found it was oxidation on the tip. After resetting the soldering iron, checking temperature, and trying to de-oxidize it with the copper shavings in the soldering station, I found it ineffective. After letting it cool down, I will replace the tip with a new one.
 - CAD improvements: smaller holes for screws available, and smaller height to save material and wiring. Modeled a fake Arduino mega, push button, LCD screen, and joystick with a ball joint and put into an assembly for testing fit:
    - <img width="320" height="351" alt="image" src="https://github.com/user-attachments/assets/b4b0ca74-928d-4694-a129-cd8a7897a6c5" />
+- Code & Wiring:
+   - Note that for the arcade button to register properly with ```buttonState = digitalRead(buttonPin);```, there needs to be a common ground with the LED GND pin and the COM/GND pin on the button.
   
 
  8/11/2026:
