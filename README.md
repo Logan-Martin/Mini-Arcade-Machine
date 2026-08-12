@@ -32,6 +32,7 @@ Soldering fume extractor not required, but can be good to have as well as a stan
    - <img width="320" height="351" alt="image" src="https://github.com/user-attachments/assets/b4b0ca74-928d-4694-a129-cd8a7897a6c5" />
 - Code & Wiring:
    - Note that for the arcade button to register properly with ```buttonState = digitalRead(buttonPin);```, there needs to be a common ground with the LED GND pin and the COM/GND pin on the button.
+   - AND there needs to be ```INPUT_PULLUP``` in ```pinMode(buttonPinA, INPUT_PULLUP);```. Code at [https://github.com/Logan-Martin/Mini-Arcade-Machine/blob/main/code/OnlyPushButtonCode](https://github.com/Logan-Martin/Mini-Arcade-Machine/blob/main/code/OnlyPushButtonCode)
   
 
  8/11/2026:
