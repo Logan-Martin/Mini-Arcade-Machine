@@ -2,7 +2,7 @@
 With this project, I hope to mix my love for engineering and video game development by creating a video game for a custom machine.
 Documentation will eventually feature a wiring diagram, final OnShape CAD model, a code flowchart, and updates.
 
-<img width="298" height="386" alt="image" src="https://github.com/user-attachments/assets/180d8530-0a75-49bb-89e5-ec37b06f4cd9" />
+<img width="347" height="333" alt="image" src="https://github.com/user-attachments/assets/adb9b90f-0cd6-4888-ad5e-23d66992e16b" />
 
 ---
 
