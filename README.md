@@ -24,7 +24,7 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 ---
 
 ### Wiring
-<img width="946" height="617" alt="image" src="https://github.com/user-attachments/assets/98cd67a3-d3a6-445d-9381-633aa5a9cde2" />
+<img width="866" height="632" alt="image" src="https://github.com/user-attachments/assets/effb5e52-b80e-49b7-9c5e-502307221fda" />
 
 ---
 
