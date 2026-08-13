@@ -34,8 +34,6 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 8/12/2026:
 - Attempted to solder wires to arcade pushbuttons, but the soldering iron had issues. Eventually I found it was oxidation on the tip. After resetting the soldering iron, checking temperature, and trying to de-oxidize it with the copper shavings in the soldering station, I found it ineffective. After letting it cool down, I will replace the tip with a new one.
    - Edit: switching the tip of the soldering iron fixed the problem. Soldering took a bit to get right after not doing it for a while, but I got there eventually.
-- CAD improvements: smaller holes for screws available, and smaller height to save material and wiring. Modeled a fake Arduino mega, push button, LCD screen, and joystick with a ball joint and put into an assembly for testing fit:
-   - <img width="320" height="351" alt="image" src="https://github.com/user-attachments/assets/b4b0ca74-928d-4694-a129-cd8a7897a6c5" />
 - Code & Wiring:
    - Note that for the arcade button to register properly with ```buttonState = digitalRead(buttonPin);```, there needs to be a common ground with the LED GND pin and the COM/GND pin on the button.
    - AND there needs to be ```INPUT_PULLUP``` in ```pinMode(buttonPinA, INPUT_PULLUP);```. Code at [https://github.com/Logan-Martin/Mini-Arcade-Machine/blob/main/code/OnlyPushButtonCode](https://github.com/Logan-Martin/Mini-Arcade-Machine/blob/main/code/OnlyPushButtonCode)
@@ -46,6 +44,8 @@ Soldering fume extractor not required, but can be good to have as well as a stan
  8/11/2026:
  - Trying this now: [https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/](https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/)
  - Edit: IT WORKS! Just need to follow instructions by guide above. Download each library, put the LCD on the arduino [soldering holes side facing away from cord port], copy the code, make sure the board is connected via the IDE, verify the code with the IDE button, if no errors, run the code.
+ - CAD improvements: smaller holes for screws available, and smaller height to save material and wiring. Modeled a fake Arduino mega, push button, LCD screen, and joystick with a ball joint and put into an assembly for testing fit:
+   - <img width="320" height="351" alt="image" src="https://github.com/user-attachments/assets/b4b0ca74-928d-4694-a129-cd8a7897a6c5" />
 
 <details>
 <summary>Previous Updates [Click to Open Dropdown]</summary>
