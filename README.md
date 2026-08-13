@@ -33,6 +33,8 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 #### Latest Update:
 8/13/2026:
 - Updated image for wiring to be more direct. While the wiring looks cool, and I may remake the wiring diagram, TinkerCad makes it difficult to redo a bunch of wiring with a lack of a select all wires or selection method.
+- Made physical wiring of everything connected. Each component works [writing to LCD screen, reading Joystick values, & button pressing].
+   - Note: This took a while and was very frustating to figure out wiring everything together. Using wires that are stuck together in a row helps. My current set up can't work for the final wiring due to the screen set up, but I can now return to the figured out pins. I often forgot, and initially didn't know, I needed two pins for resetting. One that goes from the Reset pin on the Arduino to a random pin that is unlabeled on the physical LCD screen. The other being LCD_RST to any analog pin on the Arduino [I used A4].
 
 8/12/2026:
 - Attempted to solder wires to arcade pushbuttons, but the soldering iron had issues. Eventually I found it was oxidation on the tip. After resetting the soldering iron, checking temperature, and trying to de-oxidize it with the copper shavings in the soldering station, I found it ineffective. After letting it cool down, I will replace the tip with a new one.
