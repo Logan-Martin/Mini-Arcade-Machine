@@ -36,6 +36,9 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 - Made physical wiring of everything connected. Each component works [writing to LCD screen, reading Joystick values, & button pressing].
    - Note: This took a while and was very frustating to figure out wiring everything together. Using wires that are stuck together in a row helps. My current set up can't work for the final wiring due to the screen set up, but I can now return to the figured out pins. I often forgot, and initially didn't know, I needed two pins for resetting. One that goes from the Reset pin on the Arduino to a random pin that is unlabeled on the physical LCD screen. The other being LCD_RST to any analog pin on the Arduino [I used A4].
 
+<details>
+<summary>Previous Updates [Click to Open Dropdown]</summary>
+   
 8/12/2026:
 - Attempted to solder wires to arcade pushbuttons, but the soldering iron had issues. Eventually I found it was oxidation on the tip. After resetting the soldering iron, checking temperature, and trying to de-oxidize it with the copper shavings in the soldering station, I found it ineffective. After letting it cool down, I will replace the tip with a new one.
    - Edit: switching the tip of the soldering iron fixed the problem. Soldering took a bit to get right after not doing it for a while, but I got there eventually.
@@ -52,14 +55,18 @@ Soldering fume extractor not required, but can be good to have as well as a stan
  - CAD improvements: smaller holes for screws available, and smaller height to save material and wiring. Modeled a fake Arduino mega, push button, LCD screen, and joystick with a ball joint and put into an assembly for testing fit:
    - <img width="320" height="351" alt="image" src="https://github.com/user-attachments/assets/b4b0ca74-928d-4694-a129-cd8a7897a6c5" />
 
-<details>
-<summary>Previous Updates [Click to Open Dropdown]</summary>
-8/5/2026:
-- Started Project
-- V1 of CAD Model: https://cad.onshape.com/documents/1f67ee2ecc3e3aa01e412fcf/w/54ba2dbc630de261fbd7408a/e/83f6dcfcd872f677a0073c63?renderMode=0&uiState=6a73e49e044e03fd4e4e218f
-- Note: When using Box Joint add-on, make sure walls intersect geometry with each other.
-- Progress screenshot:
-   - <img width="892" height="735" alt="image" src="https://github.com/user-attachments/assets/88094ea1-6ea7-4b17-8c51-4fe3e1b8c56e" />
+8/10/2026:
+- Tried running old library on Arduino Uno and it didn't work. Looked online, AI says the library doesn't match my LCD despite the video.
+- I tried a new library "mcufriend_kbv," as AI suggested. Running it tells me the Arduino Uno doesn't have enough memory. Thus, I've switched the an Arduino Mega board [Mega 2560 Rev3].
+- Running the library on the Arduino Mega, I get the following errors:
+```
+Error: timeout
+Error: timeout communicating with programmer
+Error: failed to execute command 0x13
+Error: write command failed
+ ```
+- Important links:
+   - Arduino docs of board: https://docs.arduino.cc/hardware/mega-2560/
 
 8/6/2026:
 - Video showcasing same LCD Screen: https://www.youtube.com/watch?v=0-aUxdmCEgg
@@ -76,18 +83,11 @@ Soldering fume extractor not required, but can be good to have as well as a stan
    - <img width="1480" height="759" alt="image" src="https://github.com/user-attachments/assets/853d3d26-c098-4ff8-ae2c-0ad57f597f7c" />
 - Updated: [Same-day, only LCD Screen wiring diagram]
    - <img width="1296" height="732" alt="image" src="https://github.com/user-attachments/assets/7a94b132-7932-4708-9d95-ba036317fb0d" />
-
-8/10/2026:
-- Tried running old library on Arduino Uno and it didn't work. Looked online, AI says the library doesn't match my LCD despite the video.
-- I tried a new library "mcufriend_kbv," as AI suggested. Running it tells me the Arduino Uno doesn't have enough memory. Thus, I've switched the an Arduino Mega board [Mega 2560 Rev3].
-- Running the library on the Arduino Mega, I get the following errors:
-```
-Error: timeout
-Error: timeout communicating with programmer
-Error: failed to execute command 0x13
-Error: write command failed
- ```
-- Important links:
-   - Arduino docs of board: https://docs.arduino.cc/hardware/mega-2560/
+8/5/2026:
+- Started Project
+- V1 of CAD Model: https://cad.onshape.com/documents/1f67ee2ecc3e3aa01e412fcf/w/54ba2dbc630de261fbd7408a/e/83f6dcfcd872f677a0073c63?renderMode=0&uiState=6a73e49e044e03fd4e4e218f
+- Note: When using Box Joint add-on, make sure walls intersect geometry with each other.
+- Progress screenshot:
+   - <img width="892" height="735" alt="image" src="https://github.com/user-attachments/assets/88094ea1-6ea7-4b17-8c51-4fe3e1b8c56e" />
 
 </details>
