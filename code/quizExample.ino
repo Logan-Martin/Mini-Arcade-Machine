@@ -3,10 +3,10 @@
 #include <TouchScreen.h>
 
 // --- Touchscreen pin definitions ---
-#define YP A3
-#define XM A2
-#define YM 9
-#define XP 8
+#define YP A3 // LCD_CS
+#define XM A2 // LCD_CD
+#define YM 9 // LCD_D1
+#define XP 8 // LCD_D0
 
 // --- Touchscreen calibration values (adjust as needed) ---
 #define TS_MINX 120
@@ -20,11 +20,11 @@
 TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 
 // --- LCD control pins ---
-#define LCD_CS A3
-#define LCD_CD A2
-#define LCD_WR A1
+#define LCD_CS A3 
+#define LCD_CD A2 // aka LCD_RS
+#define LCD_WR A1 
 #define LCD_RD A0
-#define LCD_RESET A4
+#define LCD_RESET A4 // !!
 
 Elegoo_TFTLCD tft(LCD_CS, LCD_CD, LCD_WR, LCD_RD, LCD_RESET);
 
