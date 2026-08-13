@@ -4,6 +4,8 @@ Documentation will eventually feature a wiring diagram, final OnShape CAD model,
 
 <img width="347" height="333" alt="image" src="https://github.com/user-attachments/assets/adb9b90f-0cd6-4888-ad5e-23d66992e16b" />
 
+Link to CAD Model: [click to open](https://cad.onshape.com/documents/1f67ee2ecc3e3aa01e412fcf/w/54ba2dbc630de261fbd7408a/e/2a63c9408a712fd025e38aa2?renderMode=0&uiState=6a7e487eccdc1f875b3301e7)
+
 ---
 
 ### Materials
