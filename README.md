@@ -24,13 +24,16 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 ---
 
 ### Wiring
-<img width="1303" height="740" alt="image" src="https://github.com/user-attachments/assets/a408ab1c-4327-4963-a7f8-4267a6d22e36" />
+<img width="946" height="617" alt="image" src="https://github.com/user-attachments/assets/98cd67a3-d3a6-445d-9381-633aa5a9cde2" />
 
 ---
 
 ### Updates
 
 #### Latest Update:
+8/13/2026:
+- Updated image for wiring to be more direct. While the wiring looks cool, and I may remake the wiring diagram, TinkerCad makes it difficult to redo a bunch of wiring with a lack of a select all wires or selection method.
+
 8/12/2026:
 - Attempted to solder wires to arcade pushbuttons, but the soldering iron had issues. Eventually I found it was oxidation on the tip. After resetting the soldering iron, checking temperature, and trying to de-oxidize it with the copper shavings in the soldering station, I found it ineffective. After letting it cool down, I will replace the tip with a new one.
    - Edit: switching the tip of the soldering iron fixed the problem. Soldering took a bit to get right after not doing it for a while, but I got there eventually.
@@ -38,8 +41,8 @@ Soldering fume extractor not required, but can be good to have as well as a stan
    - Note that for the arcade button to register properly with ```buttonState = digitalRead(buttonPin);```, there needs to be a common ground with the LED GND pin and the COM/GND pin on the button.
    - AND there needs to be ```INPUT_PULLUP``` in ```pinMode(buttonPinA, INPUT_PULLUP);```. Code at [https://github.com/Logan-Martin/Mini-Arcade-Machine/blob/main/code/OnlyPushButtonCode](https://github.com/Logan-Martin/Mini-Arcade-Machine/blob/main/code/OnlyPushButtonCode)
    - Video that helped with Joystick: [https://www.youtube.com/watch?v=9z5FsTzYWE4](https://www.youtube.com/watch?v=9z5FsTzYWE4)
+   - Old image for wiring: <img width="1303" height="740" alt="image" src="https://github.com/user-attachments/assets/a408ab1c-4327-4963-a7f8-4267a6d22e36" />
  - Physical: laser cut walls for bottom, screen, and buttons. The cut holes fit perfectly. 
-  
 
  8/11/2026:
  - Trying this now: [https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/](https://www.instructables.com/Arduino-Mega-Touchscreen-Quiz-Using-Elegoo-28-TFT-/)
