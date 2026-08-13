@@ -7,7 +7,7 @@
 int xPin = A6;
 int yPin = A7;
 
-int buttonPin = 54;
+int buttonPin = 52;
 int xVal;
 int yVal;
 int buttonState;
