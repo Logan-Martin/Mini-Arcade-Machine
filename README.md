@@ -17,8 +17,8 @@ Link to CAD Model: [click to open](https://cad.onshape.com/documents/1f67ee2ecc3
 | Pushbutton | x2 |
 | Joystick | x1 |
 | LCD Screen [2.8" TFT ILI 9341] | x1 |
-| M2 Nuts | x14 |
-| M2 x 12mm length Screws | x14 |
+| M3 Nuts | x18 |
+| M3 x 20mm length Screws | x14 |
 | M3 x 25mm length Screws | x4 [for holding Joystick] |
 
 Note: The arcade pushbuttons I used required soldering. 
@@ -39,6 +39,8 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 - [2:13pm] After laser cutting everything, I realized that the holes for the main piece isn't spread out enough for the Joystick to attach properly, and that the hole itself for it needs to be bigger.
    - Additionally, some friction fit pieces are great, others may need some sanding. [2:26] The small screws for the walls, it's been difficult to find a screwdriver for them. 
 - [2:36] Trying to place the screws and nuts in to hold is frustrating, especially with the screwdriver not fitting nicely. -And the gap on the backboard to allow cord to go through to the Arduino didn't account for the arduino standoffs I added. I'll need to adjust it in CAD and recut.
+- [3:41] Unit overall needs to be taller to fit wires nicely. Hit issues again with the screws. +Screen wall needs to be thicker to not break under pressure, and to connect to the wooden plate above it.
+- 
 
 
 8/13/2026:
