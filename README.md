@@ -19,7 +19,7 @@ Link to CAD Model: [click to open](https://cad.onshape.com/documents/1f67ee2ecc3
 | LCD Screen [2.8" TFT ILI 9341] | x1 |
 | M2 Nuts | x14 |
 | M2 x 12mm length Screws | x14 |
-| M3 x 20mm length Screws | x4 [for holding Joystick] |
+| M3 x 25mm length Screws | x4 [for holding Joystick] |
 
 Note: The arcade pushbuttons I used required soldering. 
 That requires soldering iron, solder itself, wire to strip [wire stripper needed], copper shavings, sponge. 
