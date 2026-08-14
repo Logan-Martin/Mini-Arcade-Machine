@@ -38,7 +38,7 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 8/14/2026:
 - [2:13pm] After laser cutting everything, I realized that the holes for the main piece isn't spread out enough for the Joystick to attach properly, and that the hole itself for it needs to be bigger.
    - Additionally, some friction fit pieces are great, others may need some sanding. [2:26] The small screws for the walls, it's been difficult to find a screwdriver for them. 
-- 
+- [2:36] Trying to place the screws and nuts in to hold is frustrating, especially with the screwdriver not fitting nicely. -And the gap on the backboard to allow cord to go through to the Arduino didn't account for the arduino standoffs I added. I'll need to adjust it in CAD and recut.
 
 
 8/13/2026:
