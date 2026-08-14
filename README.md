@@ -17,7 +17,7 @@ Link to CAD Model: [click to open](https://cad.onshape.com/documents/1f67ee2ecc3
 | Pushbutton | x2 |
 | Joystick | x1 |
 | LCD Screen [2.8" TFT ILI 9341] | x1 |
-| M3 Nuts | x18 |
+| M3 Nuts | x18 [4 for holding Joystick] |
 | M3 x 20mm length Screws | x14 |
 | M3 x 25mm length Screws | x4 [for holding Joystick] |
 
