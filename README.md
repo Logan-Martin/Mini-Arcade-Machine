@@ -35,6 +35,12 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 ### Updates
 
 #### Latest Update:
+8/14/2026:
+- [2:13pm] After laser cutting everything, I realized that the holes for the main piece isn't spread out enough for the Joystick to attach properly, and that the hole itself for it needs to be bigger.
+   - Additionally, some friction fit pieces are great, others may need some sanding. [2:26] The small screws for the walls, it's been difficult to find a screwdriver for them. 
+- 
+
+
 8/13/2026:
 - Updated image for wiring to be more direct. While the wiring looks cool, and I may remake the wiring diagram, TinkerCad makes it difficult to redo a bunch of wiring with a lack of a select all wires or selection method.
 - Made physical wiring of everything connected. Each component works [writing to LCD screen, reading Joystick values, & button pressing].
