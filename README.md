@@ -35,12 +35,17 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 ### Updates
 
 #### Latest Update:
+8/17/2026:
+- Did some physical assembly, thankfully finding many terminal stacking headers to make the job of connecting pins easier.
+- [6:39pm] Encountered an issue with ButtonB not working and the screen. ButtonA and the Joystick worked perfect. Turns out I can't use Digital Pins 20 and 21 for buttons on the Arduino Mega for the buttons as they are for I2C [SDA, SDL] communication. After rewiring the digital pins of the buttons to 30 and 32, both buttons now work.
+- 
+
+
 8/14/2026:
 - [2:13pm] After laser cutting everything, I realized that the holes for the main piece isn't spread out enough for the Joystick to attach properly, and that the hole itself for it needs to be bigger.
    - Additionally, some friction fit pieces are great, others may need some sanding. [2:26] The small screws for the walls, it's been difficult to find a screwdriver for them. 
 - [2:36] Trying to place the screws and nuts in to hold is frustrating, especially with the screwdriver not fitting nicely. -And the gap on the backboard to allow cord to go through to the Arduino didn't account for the arduino standoffs I added. I'll need to adjust it in CAD and recut.
 - [3:41] Unit overall needs to be taller to fit wires nicely. Hit issues again with the screws. +Screen wall needs to be thicker to not break under pressure, and to connect to the wooden plate above it.
-- 
 
 
 8/13/2026:
