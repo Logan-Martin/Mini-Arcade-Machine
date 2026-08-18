@@ -35,10 +35,14 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 ### Updates
 
 #### Latest Update:
+
+8/18/2026:
+- Attempting to fix the screen today. After double checking wires with the code and with a multimeter [icon that looks like sound waves/audio], they all seem to work fine. I did, however, miss adding Digital Pin 13 by accident. The screen is still just white though, no image is displaying, with some flickering. That tells me there's something with the Power, maybe one of the Reset pins. Unsure, but it doesn't seem to be.
+- 
+
 8/17/2026:
 - Did some physical assembly, thankfully finding many terminal stacking headers to make the job of connecting pins easier.
-- [6:39pm] Encountered an issue with ButtonB not working and the screen. ButtonA and the Joystick worked perfect. Turns out I can't use Digital Pins 20 and 21 for buttons on the Arduino Mega for the buttons as they are for I2C [SDA, SDL] communication. After rewiring the digital pins of the buttons to 30 and 32, both buttons now work.
-- 
+- Encountered an issue with ButtonB not working and the screen. ButtonA and the Joystick worked perfect. Turns out I can't use Digital Pins 20 and 21 for buttons on the Arduino Mega for the buttons as they are for I2C [SDA, SDL] communication. After rewiring the digital pins of the buttons to 30 and 32, both buttons now work.
 
 
 8/14/2026:
