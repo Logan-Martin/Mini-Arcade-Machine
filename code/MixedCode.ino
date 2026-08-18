@@ -7,14 +7,14 @@
 int xPin = A6;
 int yPin = A7;
 
-int buttonPin = 52;
+int buttonPin = 48;
 int xVal;
 int yVal;
 int buttonState;
 /// ---------------- ///
 // FOR BUTTONS:
-const int buttonPinA = 48; 
-const int buttonPinB = 50; 
+const int buttonPinA = 32; 
+const int buttonPinB = 30; 
 int buttonAState = 0; 
 int buttonBState = 0; 
 /// 000000000000000000 ///
