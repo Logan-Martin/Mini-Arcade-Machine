@@ -45,6 +45,9 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 - Encountered an issue with ButtonB not working and the screen. ButtonA and the Joystick worked perfect. Turns out I can't use Digital Pins 20 and 21 for buttons on the Arduino Mega for the buttons as they are for I2C [SDA, SDL] communication. After rewiring the digital pins of the buttons to 30 and 32, both buttons now work.
 
 
+<details>
+<summary>Previous Updates [Click to Open Dropdown]</summary>
+
 8/14/2026:
 - [2:13pm] After laser cutting everything, I realized that the holes for the main piece isn't spread out enough for the Joystick to attach properly, and that the hole itself for it needs to be bigger.
    - Additionally, some friction fit pieces are great, others may need some sanding. [2:26] The small screws for the walls, it's been difficult to find a screwdriver for them. 
@@ -57,9 +60,6 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 - Made physical wiring of everything connected. Each component works [writing to LCD screen, reading Joystick values, & button pressing].
    - Note: This took a while and was very frustating to figure out wiring everything together. Using wires that are stuck together in a row helps. My current set up can't work for the final wiring due to the screen set up, but I can now return to the figured out pins. I often forgot, and initially didn't know, I needed two pins for resetting. One that goes from the Reset pin on the Arduino to a random pin that is unlabeled on the physical LCD screen. The other being LCD_RST to any analog pin on the Arduino [I used A4].
 
-<details>
-<summary>Previous Updates [Click to Open Dropdown]</summary>
-   
 8/12/2026:
 - Attempted to solder wires to arcade pushbuttons, but the soldering iron had issues. Eventually I found it was oxidation on the tip. After resetting the soldering iron, checking temperature, and trying to de-oxidize it with the copper shavings in the soldering station, I found it ineffective. After letting it cool down, I will replace the tip with a new one.
    - Edit: switching the tip of the soldering iron fixed the problem. Soldering took a bit to get right after not doing it for a while, but I got there eventually.
