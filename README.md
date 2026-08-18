@@ -2,7 +2,7 @@
 With this project, I hope to mix my love for engineering and video game development by creating a video game for a custom machine.
 Documentation will eventually feature a wiring diagram, final OnShape CAD model, a code flowchart, and updates.
 
-<img width="347" height="333" alt="image" src="https://github.com/user-attachments/assets/adb9b90f-0cd6-4888-ad5e-23d66992e16b" />
+<img width="337" height="435" alt="IMG_20260818_180818005" src="https://github.com/user-attachments/assets/972a2a61-902c-427a-b77e-c60f91dd03b9" />
 
 Link to CAD Model: [click to open](https://cad.onshape.com/documents/1f67ee2ecc3e3aa01e412fcf/w/54ba2dbc630de261fbd7408a/e/2a63c9408a712fd025e38aa2)
 - NOTE: OnShape may come up with a 404 Forbidden Page. If this happens, please copy and paste the link into your browser. 
@@ -39,7 +39,8 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 8/18/2026:
 - Attempting to fix the screen today. After double checking wires with the code and with a multimeter [icon that looks like sound waves/audio], they all seem to work fine. I did, however, miss adding Digital Pin 13 by accident. The screen is still just white though, no image is displaying, with some flickering. That tells me there's something with the Power, maybe one of the Reset pins. Unsure, but it doesn't seem to be.
 - I've realized my mistake, or hopefully the last one. I used a breadboard to connect LCD pins and wires from the Arduino, but I didn't put a connection between both sides of the breadboard. That meant that no charge would go from one side of the board to the other. I can connect it or bridge it. 
-- After looking for ways to connect two sides of a breadboard, I found a bunch of male-to-female wires that are pre-stuck together. I've decided to rewire the LCD with these as it's a direct connection and much cleaner. 
+- After looking for ways to connect two sides of a breadboard, I found a bunch of male-to-female wires that are pre-stuck together. I've decided to rewire the LCD with these as it's a direct connection and much cleaner.
+- Update [6:10]: It WORKS! The rewiring was annoying, but made it all nicer to work with. The wires fit mostly in the box. I had to sand some more friction fit holes, and had some more annoyances with screwing in each wall, but the final result didn't take too long. I made sure to test each button and the screen each wall I added just to be sure. Now to learn graphics or overall drawing on the screen to make something run on the machine.
 
 8/17/2026:
 - Did some physical assembly, thankfully finding many terminal stacking headers to make the job of connecting pins easier.
