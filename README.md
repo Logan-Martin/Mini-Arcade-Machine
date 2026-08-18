@@ -12,12 +12,12 @@ Link to CAD Model: [click to open](https://cad.onshape.com/documents/1f67ee2ecc3
 ### Materials
 |Type |Quantity |
 |--- | --- |
-| Microcontroller [Arduino Uno] | x1 |
+| Microcontroller [Arduino Mega R3] | x1 |
 | Wires | x? |
-| Pushbutton | x2 |
+| Arcade Pushbuttons | x2 |
 | Joystick | x1 |
 | LCD Screen [2.8" TFT ILI 9341] | x1 |
-| M3 Nuts | x18 [4 for holding Joystick] |
+| M3 Nuts | x22 [x8 for holding Joystick] + x4 more if using Arduino standoffs |
 | M3 x 20mm length Screws | x14 |
 | M3 x 25mm length Screws | x4 [for holding Joystick] |
 
@@ -42,13 +42,11 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 - After looking for ways to connect two sides of a breadboard, I found a bunch of male-to-female wires that are pre-stuck together. I've decided to rewire the LCD with these as it's a direct connection and much cleaner.
 - Update [6:10]: It WORKS! The rewiring was annoying, but made it all nicer to work with. The wires fit mostly in the box. I had to sand some more friction fit holes, and had some more annoyances with screwing in each wall, but the final result didn't take too long. I made sure to test each button and the screen each wall I added just to be sure. Now to learn graphics or overall drawing on the screen to make something run on the machine.
 
+<details>
+<summary>Previous Updates [Click to Open Dropdown]</summary>
 8/17/2026:
 - Did some physical assembly, thankfully finding many terminal stacking headers to make the job of connecting pins easier.
 - Encountered an issue with ButtonB not working and the screen. ButtonA and the Joystick worked perfect. Turns out I can't use Digital Pins 20 and 21 for buttons on the Arduino Mega for the buttons as they are for I2C [SDA, SDL] communication. After rewiring the digital pins of the buttons to 30 and 32, both buttons now work.
-
-
-<details>
-<summary>Previous Updates [Click to Open Dropdown]</summary>
 
 8/14/2026:
 - [2:13pm] After laser cutting everything, I realized that the holes for the main piece isn't spread out enough for the Joystick to attach properly, and that the hole itself for it needs to be bigger.
