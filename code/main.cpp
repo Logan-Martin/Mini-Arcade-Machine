@@ -2,30 +2,6 @@
 #include <Elegoo_TFTLCD.h>
 #include <TouchScreen.h>
 
-struct CircleData {
-  int16_t xPos;
-  int16_t yPos;
-  int16_t radius;
-  uint16_t color;
-};
-
-// CODE FOR JOYSTICK:
-int xPin_Joystick = A6;
-int yPin_Joystick = A7;
-
-int buttonPin_Joystick = 48;
-int xVal_Joystick;
-int yVal_Joystick;
-int buttonState_Joystick;
-/// 000000000000000000 ///
-
-// FOR BUTTONS:
-const int buttonPinA = 32;
-const int buttonPinB = 30;
-int buttonAState = 0;
-int buttonBState = 0;
-/// 000000000000000000 ///
-
 // --- Touchscreen pin definitions ---
 #define YP A3  // LCD_CS
 #define XM A2  // LCD_CD
@@ -64,6 +40,39 @@ Elegoo_TFTLCD tft(LCD_CS, LCD_CD, LCD_WR, LCD_RD, LCD_RESET);
 #define SCREEN_HEIGHT 240
 // 000000000000000000 //
 
+struct CircleData {
+  int16_t xPos;
+  int16_t yPos;
+  int16_t radius = 20;
+  uint16_t color = BLACK;
+  bool drawDebounce = false;
+};
+CircleData CircleA;
+CircleData CircleB;
+
+struct JoystickStruct {
+  int xPin = A6;
+  int yPin = A7;
+  
+  int xVal;
+  int yVal;
+
+  int buttonPin = 48;
+  int buttonState;
+  int butttonDebounce = 0;
+};
+JoystickStruct joystick;
+
+struct PushbuttonStruct {
+  int buttonPin = 48;
+  int buttonState = 0;
+  int butttonDebounce = 0;
+};
+PushbuttonStruct ButtonA;
+PushbuttonStruct ButtonB;
+
+
+
 // --- Text wrapping ---
 void printWrappedText(const char* text, int x, int y, int maxWidthChars, int lineHeight) {
   tft.setCursor(x, y);
@@ -97,13 +106,16 @@ void setup() {
   randomSeed(analogRead(0));
 
   // FOR JOYSTICK:
-  pinMode(xPin_Joystick, INPUT);
-  pinMode(yPin_Joystick, INPUT);
-  pinMode(buttonPin_Joystick, INPUT_PULLUP);
+  pinMode(joystick.xPin, INPUT);
+  pinMode(joystick.yPin, INPUT);
+  pinMode(joystick.buttonPin , INPUT_PULLUP);
   // 00000000000000 //
+
   // FOR BUTTONS:
-  pinMode(buttonPinA, INPUT_PULLUP);
-  pinMode(buttonPinB, INPUT_PULLUP);
+  ButtonA.buttonPin = 32;
+  ButtonB.buttonPin = 30;
+  pinMode(ButtonA.buttonPin, INPUT_PULLUP);
+  pinMode(ButtonB.buttonPin, INPUT_PULLUP);
   // 0000000000000 //
 
   tft.reset();
@@ -115,13 +127,6 @@ void setup() {
   tft.setTextSize(4);
   printWrappedText("Hello!", (SCREEN_WIDTH / 3.2) , SCREEN_HEIGHT / 3, 6, 6);
 
-  //CircleData ButtonACircle = {
-  //  xPos = SCREEN_WIDTH - computedOffset;
-  //  yPos = SCREEN_HEIGHT - computedOffset;
-  //  radius = 20;
-  //  color = BLACK;
-  //} 
-
   int16_t circleRadius = 20;
   int offset1 = 0;
   int16_t computedOffset = (circleRadius * 1.5) - offset1;
@@ -131,13 +136,13 @@ void setup() {
 
 void Input() { // reads player inputs
   // JOYSTICK: //
-  xVal_Joystick = analogRead(xPin_Joystick);
-  yVal_Joystick = analogRead(yPin_Joystick);
-  buttonState_Joystick = digitalRead(buttonPin_Joystick);
+  joystick.xVal = analogRead(joystick.xPin);
+  joystick.yVal = analogRead(joystick.yPin);
+  joystick.buttonState = digitalRead(joystick.buttonPin);
 
   // BUTTONS:
-  buttonAState = digitalRead(buttonPinA);
-  buttonBState = digitalRead(buttonPinB);
+  ButtonA.buttonState = digitalRead(ButtonA.buttonPin);
+  ButtonA.buttonState = digitalRead(ButtonB.buttonPin);
 }
 
 void Update() { // Move things [plr, enemy, etc] w/ math, enemy AI, or calculate physics
@@ -145,7 +150,7 @@ void Update() { // Move things [plr, enemy, etc] w/ math, enemy AI, or calculate
 }
 
 void Render() { // draw the graphics based on the Update changes
-  if (buttonAState == LOW) {
+  if (ButtonA.buttonState == LOW) {
     int16_t circleRadius = 20;
     int offset1 = 0;
     int16_t computedOffset = (circleRadius * 1.5) - offset1;
@@ -160,7 +165,7 @@ void Render() { // draw the graphics based on the Update changes
     tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, BLACK);
   }
 
-  if (buttonBState == LOW) {
+  if (ButtonB.buttonState == LOW) {
     int16_t circleRadius = 20;
     int offset1 = 0;
     int16_t computedOffset = (circleRadius * 1.5) - offset1;
