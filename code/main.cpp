@@ -2,6 +2,13 @@
 #include <Elegoo_TFTLCD.h>
 #include <TouchScreen.h>
 
+struct CircleData {
+  int16_t xPos;
+  int16_t yPos;
+  int16_t radius;
+  uint16_t color;
+};
+
 // CODE FOR JOYSTICK:
 int xPin_Joystick = A6;
 int yPin_Joystick = A7;
@@ -83,6 +90,7 @@ void printWrappedText(const char* text, int x, int y, int maxWidthChars, int lin
   }
 }
 
+
 // --- Setup ---
 void setup() {
   Serial.begin(9600);
@@ -107,8 +115,18 @@ void setup() {
   tft.setTextSize(4);
   printWrappedText("Hello!", (SCREEN_WIDTH / 3.2) , SCREEN_HEIGHT / 3, 6, 6);
 
-  tft.drawBitmap()
+  //CircleData ButtonACircle = {
+  //  xPos = SCREEN_WIDTH - computedOffset;
+  //  yPos = SCREEN_HEIGHT - computedOffset;
+  //  radius = 20;
+  //  color = BLACK;
+  //} 
 
+  int16_t circleRadius = 20;
+  int offset1 = 0;
+  int16_t computedOffset = (circleRadius * 1.5) - offset1;
+  tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK); // Types: int16_t, int16_t, int16_t, uint16_t
+  tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK);
 }
 
 void Input() { // reads player inputs
@@ -128,18 +146,45 @@ void Update() { // Move things [plr, enemy, etc] w/ math, enemy AI, or calculate
 
 void Render() { // draw the graphics based on the Update changes
   if (buttonAState == LOW) {
-    Serial.println("Pressed ButtonA!");
+    int16_t circleRadius = 20;
+    int offset1 = 0;
+    int16_t computedOffset = (circleRadius * 1.5) - offset1;
+    tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, RED); // Types: int16_t, int16_t, int16_t, uint16_t
+    tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, RED);
+  }
+  else { // i need a stopgap / Debounce for this
+    int16_t circleRadius = 20;
+    int offset1 = 0;
+    int16_t computedOffset = (circleRadius * 1.5) - offset1;
+    tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, BLACK); // Types: int16_t, int16_t, int16_t, uint16_t
+    tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, BLACK);
   }
 
   if (buttonBState == LOW) {
-    Serial.println("Pressed ButtonB!");
+    int16_t circleRadius = 20;
+    int offset1 = 0;
+    int16_t computedOffset = (circleRadius * 1.5) - offset1;
+    tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, GREEN); // Types: int16_t, int16_t, int16_t, uint16_t
+    tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, GREEN);
+  }
+  else { // i need a stopgap / Debounce for this
+    int16_t circleRadius = 20;
+    int offset1 = 0;
+    int16_t computedOffset = (circleRadius * 1.5) - offset1;
+    tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK); // Types: int16_t, int16_t, int16_t, uint16_t
+    tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK);
   }
 }
 
 
 // --- Main loop ---
 void loop() {
+  // setup function above already run by default with Arduino
+
   Input(); 
   Update();
   Render();
+
+  // I'm using flash memory so it wipes each upload.
+  // If I needto store data, like a highscore, then I'd need to store that and possibly clean up that if need-be.
 }
