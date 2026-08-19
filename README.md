@@ -26,6 +26,10 @@ That requires soldering iron, solder itself, wire to strip [wire stripper needed
 Soldering fume extractor not required, but can be good to have as well as a stand with clips to hold what you're soldering and/or mat to solder on.
 
 ---
+### Important Links
+- LCD Screen info: [https://wiki.elegoo.com/oshw-parts-&-accessories/screen-intruduction](https://wiki.elegoo.com/oshw-parts-&-accessories/screen-intruduction) 
+
+---
 
 ### Wiring
 <img width="866" height="632" alt="image" src="https://github.com/user-attachments/assets/effb5e52-b80e-49b7-9c5e-502307221fda" />
