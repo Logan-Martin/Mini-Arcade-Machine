@@ -59,17 +59,17 @@ struct JoystickStruct {
 
   int buttonPin = 48;
   int buttonState;
-  int butttonDebounce = 0;
+  int buttonDebounce = 0;
 };
 JoystickStruct joystick;
 
 struct PushbuttonStruct {
-  int buttonPin = 48;
-  int buttonState = 0;
-  int butttonDebounce = 0;
+  int buttonPin;
+  int buttonState;
+  int buttonDebounce;
 };
-PushbuttonStruct ButtonA;
-PushbuttonStruct ButtonB;
+PushbuttonStruct ButtonA = {32, 0, 0};
+PushbuttonStruct ButtonB = {30, 0, 0};
 
 
 
@@ -112,8 +112,6 @@ void setup() {
   // 00000000000000 //
 
   // FOR BUTTONS:
-  ButtonA.buttonPin = 32;
-  ButtonB.buttonPin = 30;
   pinMode(ButtonA.buttonPin, INPUT_PULLUP);
   pinMode(ButtonB.buttonPin, INPUT_PULLUP);
   // 0000000000000 //
@@ -130,7 +128,6 @@ void setup() {
   int16_t circleRadius = 20;
   int offset1 = 0;
   int16_t computedOffset = (circleRadius * 1.5) - offset1;
-  tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK); // Types: int16_t, int16_t, int16_t, uint16_t
   tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK);
 }
 
@@ -142,7 +139,7 @@ void Input() { // reads player inputs
 
   // BUTTONS:
   ButtonA.buttonState = digitalRead(ButtonA.buttonPin);
-  ButtonA.buttonState = digitalRead(ButtonB.buttonPin);
+  ButtonB.buttonState = digitalRead(ButtonB.buttonPin);
 }
 
 void Update() { // Move things [plr, enemy, etc] w/ math, enemy AI, or calculate physics
@@ -154,14 +151,12 @@ void Render() { // draw the graphics based on the Update changes
     int16_t circleRadius = 20;
     int offset1 = 0;
     int16_t computedOffset = (circleRadius * 1.5) - offset1;
-    tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, RED); // Types: int16_t, int16_t, int16_t, uint16_t
     tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, RED);
   }
   else { // i need a stopgap / Debounce for this
     int16_t circleRadius = 20;
     int offset1 = 0;
     int16_t computedOffset = (circleRadius * 1.5) - offset1;
-    tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, BLACK); // Types: int16_t, int16_t, int16_t, uint16_t
     tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, BLACK);
   }
 
@@ -169,14 +164,12 @@ void Render() { // draw the graphics based on the Update changes
     int16_t circleRadius = 20;
     int offset1 = 0;
     int16_t computedOffset = (circleRadius * 1.5) - offset1;
-    tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, GREEN); // Types: int16_t, int16_t, int16_t, uint16_t
     tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, GREEN);
   }
   else { // i need a stopgap / Debounce for this
     int16_t circleRadius = 20;
     int offset1 = 0;
     int16_t computedOffset = (circleRadius * 1.5) - offset1;
-    tft.drawCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK); // Types: int16_t, int16_t, int16_t, uint16_t
     tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK);
   }
 }
