@@ -41,14 +41,15 @@ Elegoo_TFTLCD tft(LCD_CS, LCD_CD, LCD_WR, LCD_RD, LCD_RESET);
 // 000000000000000000 //
 
 struct CircleData {
-  int16_t xPos;
-  int16_t yPos;
+  int16_t xPos = 0;
+  int16_t yPos = 0;
   int16_t radius = 20;
   uint16_t color = BLACK;
   bool drawDebounce = false;
 };
 CircleData CircleA;
 CircleData CircleB;
+CircleData Circle_JoystickButton;
 
 struct JoystickStruct {
   int xPin = A6;
@@ -125,10 +126,11 @@ void setup() {
   tft.setTextSize(4);
   printWrappedText("Hello!", (SCREEN_WIDTH / 3.2) , SCREEN_HEIGHT / 3, 6, 6);
 
-  int16_t circleRadius = 20;
-  int offset1 = 0;
-  int16_t computedOffset = (circleRadius * 1.5) - offset1;
-  tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK);
+  // 000 - On-Screen Button indicators - 000 ///
+  //tft.fillCircle(SCREEN_WIDTH - (CircleA.radius * 1.5), SCREEN_HEIGHT - (CircleA.radius * 1.5) - 60, CircleA.radius, BLACK);
+  //tft.fillCircle(SCREEN_WIDTH - (CircleB.radius * 1.5), SCREEN_HEIGHT - (CircleB.radius * 1.5), CircleB.radius, BLACK);
+  //tft.fillCircle(Circle_JoystickButton.radius * 1.5, SCREEN_HEIGHT - (Circle_JoystickButton.radius * 1.5), Circle_JoystickButton.radius, BLACK);
+  // 00000 //
 }
 
 void Input() { // reads player inputs
@@ -147,30 +149,31 @@ void Update() { // Move things [plr, enemy, etc] w/ math, enemy AI, or calculate
 }
 
 void Render() { // draw the graphics based on the Update changes
-  if (ButtonA.buttonState == LOW) {
-    int16_t circleRadius = 20;
-    int offset1 = 0;
-    int16_t computedOffset = (circleRadius * 1.5) - offset1;
-    tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, RED);
+  if (ButtonA.buttonState == LOW && ButtonA.buttonDebounce == false) {
+    //ButtonA.buttonDebounce = true; 
+    tft.fillCircle(SCREEN_WIDTH - (CircleA.radius * 1.5), SCREEN_HEIGHT - (CircleA.radius * 1.5) - 60, CircleA.radius, RED);
   }
   else { // i need a stopgap / Debounce for this
-    int16_t circleRadius = 20;
-    int offset1 = 0;
-    int16_t computedOffset = (circleRadius * 1.5) - offset1;
-    tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset - 60, circleRadius, BLACK);
+    //ButtonA.buttonDebounce = false; 
+    tft.fillCircle(SCREEN_WIDTH - (CircleA.radius * 1.5), SCREEN_HEIGHT - (CircleA.radius * 1.5) - 60, CircleA.radius, BLACK);
   }
 
-  if (ButtonB.buttonState == LOW) {
-    int16_t circleRadius = 20;
-    int offset1 = 0;
-    int16_t computedOffset = (circleRadius * 1.5) - offset1;
-    tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, GREEN);
+  if (ButtonB.buttonState == LOW && ButtonB.buttonDebounce == false) {
+    //ButtonB.buttonDebounce = true; 
+    tft.fillCircle(SCREEN_WIDTH - (CircleB.radius * 1.5), SCREEN_HEIGHT - (CircleB.radius * 1.5), CircleB.radius, GREEN);
   }
   else { // i need a stopgap / Debounce for this
-    int16_t circleRadius = 20;
-    int offset1 = 0;
-    int16_t computedOffset = (circleRadius * 1.5) - offset1;
-    tft.fillCircle(SCREEN_WIDTH - computedOffset, SCREEN_HEIGHT - computedOffset, circleRadius, BLACK);
+    //ButtonB.buttonDebounce = false; 
+    tft.fillCircle(SCREEN_WIDTH - (CircleB.radius * 1.5), SCREEN_HEIGHT - (CircleB.radius * 1.5), CircleB.radius, BLACK);
+  }
+
+  if (joystick.buttonState == LOW && joystick.buttonDebounce == false) {
+    //joystick.buttonDebounce = true;
+    tft.fillCircle(Circle_JoystickButton.radius * 1.5, SCREEN_HEIGHT - (Circle_JoystickButton.radius * 1.5), Circle_JoystickButton.radius, YELLOW);
+  }
+  else { // i need a stopgap / Debounce for this
+    //joystick.buttonDebounce = false;
+    tft.fillCircle(Circle_JoystickButton.radius * 1.5, SCREEN_HEIGHT - (Circle_JoystickButton.radius * 1.5), Circle_JoystickButton.radius, BLACK);
   }
 }
 
