@@ -28,7 +28,7 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 ---
 ### Important Links
 - LCD Screen info: [https://wiki.elegoo.com/oshw-parts-&-accessories/screen-intruduction](https://wiki.elegoo.com/oshw-parts-&-accessories/screen-intruduction) 
-
+- Image to byte data Converter: [https://javl.github.io/image2cpp/](https://javl.github.io/image2cpp/)
 ---
 
 ### Wiring
