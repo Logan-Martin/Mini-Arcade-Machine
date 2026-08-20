@@ -39,6 +39,8 @@ Elegoo_TFTLCD tft(LCD_CS, LCD_CD, LCD_WR, LCD_RD, LCD_RESET);
 #define SCREEN_WIDTH 320
 #define SCREEN_HEIGHT 240
 // 000000000000000000 //
+unsigned long lastTime = 0; // stamp for deltaTime calculation
+// 0000000000000000000 //
 
 struct CircleData {
   int16_t xPos = 0;
@@ -51,12 +53,33 @@ CircleData CircleA;
 CircleData CircleB;
 CircleData Circle_JoystickButton;
 
+struct TriangleData {
+  int16_t x0; 
+  int16_t y0; 
+
+  int16_t x1; 
+  int16_t y1; 
+
+  int16_t x2; 
+  int16_t y2;
+
+  uint16_t color;
+};
+
 struct JoystickStruct {
   int xPin = A6;
   int yPin = A7;
   
   int xVal;
   int yVal;
+  //
+  int MAX_read_val = 1008;
+  int MIN_read_val = 70;
+  int CENTER_REST_READ_X_VAL = 523;
+  int CENTER_REST_READ_Y_VAL = 538;
+  float deadzone = 1.15;
+
+  //
 
   int buttonPin = 48;
   bool buttonState;
@@ -72,14 +95,18 @@ struct PushbuttonStruct {
 PushbuttonStruct ButtonA = {32, false, false};
 PushbuttonStruct ButtonB = {30, false, false};
 
-struct Character {
+struct CharacterStruct {
   int xPos = 0;
   int yPos = 0;
+  
   byte health = 1;  // 1 to 255
-  byte walkSpeed = 2; // 1 to 255
+  byte walkSpeed = 75; // 1 to 255
+
+  byte type = 1; // could add a type based on numbers. like 1 = player, 2 = enemy
+  int score = 0;
 };
-
-
+CharacterStruct Player; 
+CircleData PlayerCircle;
 
 // --- Text wrapping ---
 void printWrappedText(const char* text, int x, int y, int maxWidthChars, int lineHeight) {
@@ -129,10 +156,17 @@ void setup() {
   tft.setRotation(1);
   tft.fillScreen(BLUE);
 
-  //tft.setTextColor(BLACK);
-  tft.setTextSize(4);
-  printWrappedText("Hello!", (SCREEN_WIDTH / 3.2) , SCREEN_HEIGHT / 3, 6, 6);
+  //tft.fillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)
 
+  //tft.setTextColor(BLACK);
+
+  tft.setTextSize(3);
+  printWrappedText("Score: 0", ((SCREEN_WIDTH / SCREEN_WIDTH) + 5) , ((SCREEN_HEIGHT / SCREEN_HEIGHT) + 5) , 16, 1);
+
+  Player.xPos = (SCREEN_WIDTH / 2);
+  Player.yPos = (SCREEN_HEIGHT / 2);
+  tft.fillCircle(Player.xPos, Player.yPos, PlayerCircle.radius , PlayerCircle.color);
+  //PlayerCircle.color = BLACK;
   // 000 - On-Screen Button indicators - 000 ///
   //tft.fillCircle(SCREEN_WIDTH - (CircleA.radius * 1.5), SCREEN_HEIGHT - (CircleA.radius * 1.5) - 60, CircleA.radius, BLACK);
   //tft.fillCircle(SCREEN_WIDTH - (CircleB.radius * 1.5), SCREEN_HEIGHT - (CircleB.radius * 1.5), CircleB.radius, BLACK);
@@ -151,11 +185,29 @@ void Input() { // reads player inputs
   ButtonB.buttonState = digitalRead(ButtonB.buttonPin);
 }
 
-void Update() { // Move things [plr, enemy, etc] w/ math, enemy AI, or calculate physics
+void Update(float deltaTime) { // Move things [plr, enemy, etc] w/ math, enemy AI, or calculate physics
+  bool xCondition  = (joystick.xVal >= (joystick.CENTER_REST_READ_X_VAL * -joystick.deadzone));
+  bool yCondition  = (joystick.yVal >= (joystick.CENTER_REST_READ_Y_VAL * -joystick.deadzone));
+  if (abs(xCondition_LOW) && yCondition_HIGH) { // if past deadzone
+    // UP -> Y up, Down -> Y down
+    // Left -> X up, Right -> X down
+    float totalRange = (float)(joystick.MAX_read_val - joystick.MIN_read_val);
+    float xDirection = (((float)joystick.xVal - joystick.MIN_read_val ) / (totalRange / 2.0f)) - 1.0f;
+    float yDirection = (((float)joystick.yVal - joystick.MIN_read_val) / (totalRange / 2.0f)) - 1.0f;
 
+    Player.xPos += (xDirection * Player.walkSpeed * deltaTime);
+    Player.yPos += (yDirection * Player.walkSpeed * deltaTime);
+  }
 }
 
-void Render() { // draw the graphics based on the Update changes
+void Render(float deltaTime) { // draw the graphics based on the Update changes
+  // Player position updates: //
+  PlayerCircle.xPos = Player.xPos;
+  PlayerCircle.yPos = Player.yPos;
+  tft.fillCircle(PlayerCircle.xPos, PlayerCircle.yPos, PlayerCircle.radius , PlayerCircle.color);
+
+
+  // BUTTONS: //
   if (ButtonA.buttonState == LOW && ButtonA.buttonDebounce == false) {
     //ButtonA.buttonDebounce = true; 
     tft.fillCircle(SCREEN_WIDTH - (CircleA.radius * 1.5), SCREEN_HEIGHT - (CircleA.radius * 1.5) - 60, CircleA.radius, RED);
@@ -188,11 +240,13 @@ void Render() { // draw the graphics based on the Update changes
 // --- Main loop ---
 void loop() {
   // setup function above already run by default with Arduino
+  unsigned long currentTime = millis();
+  float deltaTime = (currentTime - lastTime) / 1000.0;
+  lastTime = currentTime;
 
   Input(); 
-  Update();
-  Render();
-
+  Update(deltaTime);
+  Render(deltaTime);
   // I'm using flash memory so it wipes each upload.
   // If I needto store data, like a highscore, then I'd need to store that and possibly clean up that if need-be.
 }
