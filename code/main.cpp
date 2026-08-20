@@ -59,18 +59,25 @@ struct JoystickStruct {
   int yVal;
 
   int buttonPin = 48;
-  int buttonState;
-  int buttonDebounce = 0;
+  bool buttonState;
+  bool buttonDebounce = false;
 };
 JoystickStruct joystick;
 
 struct PushbuttonStruct {
   int buttonPin;
-  int buttonState;
-  int buttonDebounce;
+  bool buttonState;
+  bool buttonDebounce;
 };
-PushbuttonStruct ButtonA = {32, 0, 0};
-PushbuttonStruct ButtonB = {30, 0, 0};
+PushbuttonStruct ButtonA = {32, false, false};
+PushbuttonStruct ButtonB = {30, false, false};
+
+struct Character {
+  int xPos = 0;
+  int yPos = 0;
+  byte health = 1;  // 1 to 255
+  byte walkSpeed = 2; // 1 to 255
+};
 
 
 
