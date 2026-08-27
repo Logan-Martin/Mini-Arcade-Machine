@@ -40,6 +40,14 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 
 #### Latest Update:
 
+8/27/2026:
+- Since the last update, I've decided to make a Galaga-like space shooter. A simple game, an MVP really, so that I can focus on my academics and jobs now that I'm back at university.
+   - It's good I did this project also because my C-Programming and Game Platform Analysis classes are introducing things I've learned here. Examples: memory management and macros [#define].
+   - The last this I started to add yesterday was a bullet mechanic. I've gotten a Bullet struct system and drawing the graphics to work. I now need a way to loop through a list of bullets with memory in mind.
+   - Ah and the player is now a triangle, which took some work in comparison to a circle.
+- Added active buzzer. Positive pin to any digital pin, negative to GND rail. Only options are HIGH and LOW writing, so there's only one note. No easy hardware or software way to muffle sound, so I use tape to cover the top hole of the buzzer.
+- Added 4 more M3 nuts to the Joystick to hold it in place. Without this the joystick can come loose.
+
 8/18/2026:
 - Attempting to fix the screen today. After double checking wires with the code and with a multimeter [icon that looks like sound waves/audio], they all seem to work fine. I did, however, miss adding Digital Pin 13 by accident. The screen is still just white though, no image is displaying, with some flickering. That tells me there's something with the Power, maybe one of the Reset pins. Unsure, but it doesn't seem to be.
 - I've realized my mistake, or hopefully the last one. I used a breadboard to connect LCD pins and wires from the Arduino, but I didn't put a connection between both sides of the breadboard. That meant that no charge would go from one side of the board to the other. I can connect it or bridge it. 
