@@ -44,7 +44,7 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 - Since the last update, I've decided to make a Galaga-like space shooter. A simple game, an MVP really, so that I can focus on my academics and jobs now that I'm back at university.
    - It's good I did this project also because my C-Programming and Game Platform Analysis classes are introducing things I've learned here. Examples: memory management and macros [#define].
    - The last this I started to add yesterday was a bullet mechanic. I've gotten a Bullet struct system and drawing the graphics to work. I now need a way to loop through a list of bullets with memory in mind.
-   - Ah and the player is now a triangle, which took some work in comparison to a circle.
+   - Ah and the player is now a triangle, it moves around currently without rotation, which took some work in comparison to a circle.
 - Added active buzzer. Positive pin to any digital pin, negative to GND rail. Only options are HIGH and LOW writing, so there's only one note. No easy hardware or software way to muffle sound, so I use tape to cover the top hole of the buzzer.
 - Added 4 more M3 nuts to the Joystick to hold it in place. Without this the joystick can come loose.
 
