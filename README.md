@@ -48,6 +48,9 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 9/13/2026:
 - Reorganized all code into multiple Header and .cpp files 
 - Created code flowchart for systems & added to this GitHub Repo
+- Added various Square & Bullet Logic w/ helper functions for the math side of things.
+  - Bug: bullets still do not draw on the screen. I suspect an issue with the math, specifically on the corners and how the shape is drawn, or with memory accessing/storing data properly. 
+- Dev Note on GitHub & code upload: I realized that I can simply upload all files with GitHub and they automatically track differences if the same name instead of manually updating them. This will be my workflow from now for this project.
 
 9/12/2026:
 - Added DrawTriangle Helper function
