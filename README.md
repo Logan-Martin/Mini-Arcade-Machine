@@ -25,6 +25,8 @@ Note: The arcade pushbuttons I used required soldering.
 That requires soldering iron, solder itself, wire to strip [wire stripper needed], copper shavings, sponge. 
 Soldering fume extractor not required, but can be good to have as well as a stand with clips to hold what you're soldering and/or mat to solder on.
 
+---
+
 ### Code Flowchart // [Overview Only For Now]
 <img width="1244" height="517" alt="Mini Arcade Machine - Code Flowchart" src="https://github.com/user-attachments/assets/ea762f0d-7262-4726-a0e1-4db1c7b87dda" />
 
