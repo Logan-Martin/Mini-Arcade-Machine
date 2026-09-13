@@ -1,5 +1,6 @@
 #include "CustShapes.h"
 #include "CustomColors.h"
+extern Elegoo_TFTLCD tft; // works bc CustomShapes.h has #include for the TFT libraries like the Main ino
 
 Point GetCenterPoint(TriangleData &triangle) {
   Point tempPoint;
@@ -56,3 +57,12 @@ void UpdateTrianglePoints(TriangleData &triangle, float xChange, float yChange) 
   triangle.x2 += xChange;
   triangle.y2 += yChange;
 };
+
+void fillTriangle_Helper_CHAR(struct CharacterStruct *charStruct, uint16_t color) {
+  if (color == NULL) {
+    tft.fillTriangle(charStruct->triangleData.x0, charStruct->triangleData.y0, charStruct->triangleData.x1, charStruct->triangleData.y1, charStruct->triangleData.x2, charStruct->triangleData.y2, charStruct->triangleData.color);
+  }
+  else {
+    tft.fillTriangle(charStruct->triangleData.x0, charStruct->triangleData.y0, charStruct->triangleData.x1, charStruct->triangleData.y1, charStruct->triangleData.x2, charStruct->triangleData.y2, color);
+  }
+}
