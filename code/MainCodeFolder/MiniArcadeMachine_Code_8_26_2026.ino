@@ -4,181 +4,47 @@
 // Custom:
 #include "CustShapes.h" // Circle, Triangle, Square
 #include "CustomColors.h"
-// 000000000000000000 //
+#include "InputStructs.h"
+#include "PinAndScreenMacros.h"
+#include "BulletStruct.h"
+#include "Character.h"
+#include "PrintWrappedTextHelper.h"
 
-#define buzzerPin 49 // Digital pin
-// Following: https://www.instructables.com/ACTIVE-BUZZER-WITH-ARDUINO-UNO-R3/
-
-// --- Touchscreen pin definitions ---
-#define YP A3  // LCD_CS
-#define XM A2  // LCD_CD
-#define YM 9   // LCD_D1
-#define XP 8   // LCD_D0
-// --- Touchscreen calibration values (adjust as needed) ---
-#define TS_MINX 120
-#define TS_MAXX 900
-#define TS_MINY 70
-#define TS_MAXY 920
-// ---- //
-#define MINPRESSURE 100
-#define MAXPRESSURE 1000
+// 000000000000000000 // 
+// NOTE: Macros/Variables for these in "PinAndScreenMacros.h"
 TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
-// 000000000000000000 //
-
-// --- LCD control pins ---
-#define LCD_CS A3
-#define LCD_CD A2  // aka LCD_RS
-#define LCD_WR A1
-#define LCD_RD A0
-#define LCD_RESET A4  // !!
 Elegoo_TFTLCD tft(LCD_CS, LCD_CD, LCD_WR, LCD_RD, LCD_RESET);
+// 000000000000000000 //
 
-// 000000000000000000 //
-#define SCREEN_WIDTH 320
-#define SCREEN_HEIGHT 240
-// 000000000000000000 //
 unsigned long lastTime = 0; // stamp for deltaTime calculation
 // 0000000000000000000 //
 
 bool SoundEnabled = false;
 void PlayAudioChirp(int delayTime) { // 50 is too much, 10 is eh
   if (SoundEnabled) {
-    digitalWrite(buzzerPin, HIGH);
+    digitalWrite(BUZZER_PIN, HIGH);
     delay(delayTime);
-    digitalWrite(buzzerPin, LOW);
+    digitalWrite(BUZZER_PIN, LOW);
   }
 }
 
+// For On-Screen Button Representation:
 CircleData CircleA;
 CircleData CircleB;
 CircleData Circle_JoystickButton;
 
-struct JoystickStruct {
-  int xPin = A6;
-  int yPin = A7;
-  
-  int xVal;
-  int yVal;
-  //
-  int MAX_TOTAL_read_val = 1008;
-  int MIN_TOTAL_read_val = 70;
-  int CENTER_REST_READ_VAL = 504;
-  float deadzone = 1.29;
-  
-  int UP_Req_Read_For_Movement;
-  int DOWN_Req_Read_For_Movement;
-  //
-
-  int buttonPin = 48;
-  bool buttonState;
-  bool buttonDebounce = false;
-};
-JoystickStruct joystick;
-
-struct PushbuttonStruct {
-  int buttonPin;
-  bool buttonState;
-  bool buttonDebounce;
-};
+// Actual Button Structs:
 PushbuttonStruct ButtonA = {32, false, false};
 PushbuttonStruct ButtonB = {30, false, false};
+JoystickStruct joystick;
 
-struct CharacterStruct {
-  // Shape Info:
-  struct Point centerPoint;
-  struct TriangleData triangleData;
-  //byte shapeOfSprite = 1; // 0 = Circle, 1 = Triangle, 2 = Square
-  
-  // Other:
-  byte health = 1;  // 1 to 255
-  byte walkSpeed = 75; // 1 to 255
-
-  byte type = 1; // could add a type based on numbers. like 1 = player, 2 = enemy
-  int score = 0;
-};
+// ---- //
 CharacterStruct Player; 
+CharacterStruct enemyList[1];
 
-struct Bullet {
-  bool active = false;
-  byte damageStat = 1; 
-  byte speed = 20;
-  LineData lineData;
-  // facingDirection;
-};
-//Bullet[8] listOfBullets;
-//int sizeOfBulletList = 8;
-
-void MoveBullet_Step(struct Bullet &bulletGiven, float deltaTime) {
-  //for (int num = 0; num < sizeOfBulletList; ++num) {
-  //  Bullet currBullet = listOfBullets[num];
-  if (bulletGiven.active == true) {
-    bulletGiven.lineData.pointA.yPos += (bulletGiven.speed * deltaTime);
-    bulletGiven.lineData.pointB.yPos += (bulletGiven.speed * deltaTime);
-  }
-}
-
-void SetUpCharacter(struct CharacterStruct *charStruct, int16_t xCenterPos, int16_t yCenterPos, uint16_t color, struct TriangleData &initTriRelationship) {
-  charStruct->centerPoint.xPos = xCenterPos;
-  charStruct->centerPoint.yPos = yCenterPos;
-  charStruct->triangleData.color = color;
-  
-  if (initTriRelationship == NULL) {
-    charStruct->triangleData.x0 = 0;
-    charStruct->triangleData.y0 = 0;
-    charStruct->triangleData.x1 = -30;
-    charStruct->triangleData.y1 = -30;
-    charStruct->triangleData.x2 = -60;
-    charStruct->triangleData.y2 = 0;
-  }
-  else {
-    charStruct->triangleData.x0 = initTriRelationship.x0;
-    charStruct->triangleData.y0 = initTriRelationship.y0;
-    charStruct->triangleData.x1 = initTriRelationship.x1;
-    charStruct->triangleData.y1 = initTriRelationship.y1;
-    charStruct->triangleData.x2 = initTriRelationship.x2;
-    charStruct->triangleData.y2 = initTriRelationship.y2;
-  }
-
-  // ----------- //
-  CustShapes::Init_CenterTriangleBasedOnCenterPoint(charStruct->triangleData, charStruct->centerPoint);
-}
-
-
-void fillTriangle_Helper_CHAR(struct CharacterStruct *charStruct, uint16_t color) {
-  if (color == NULL) {
-    tft.fillTriangle(charStruct->triangleData.x0, charStruct->triangleData.y0, charStruct->triangleData.x1, charStruct->triangleData.y1, charStruct->triangleData.x2, charStruct->triangleData.y2, charStruct->triangleData.color);
-  }
-  else {
-    tft.fillTriangle(charStruct->triangleData.x0, charStruct->triangleData.y0, charStruct->triangleData.x1, charStruct->triangleData.y1, charStruct->triangleData.x2, charStruct->triangleData.y2, color);
-  }
-}
-
-
-// --- Text wrapping ---
-void printWrappedText(const char* text, int x, int y, int maxWidthChars, int lineHeight) {
-  tft.setCursor(x, y);
-  char tempText[256];
-  strcpy(tempText, text);
-  char* rest = tempText;
-  char* word;
-  String line = "";
-
-  while ((word = strtok_r(rest, " ", &rest))) {
-    if (line.length() + strlen(word) + (line.length() > 0 ? 1 : 0) > maxWidthChars) {
-      tft.print(line);
-      y += lineHeight;
-      tft.setCursor(x, y);
-      line = word;
-      line += " ";
-    } else {
-      line += word;
-      line += " ";
-    }
-  }
-  if (line.length() > 0) {
-    tft.print(line);
-  }
-}
+Bullet listOfBullets[8];
+int sizeOfBulletList = 8;
+// 00000000000000000000000000 //
 
 
 // --- Setup ---
@@ -199,7 +65,7 @@ void setup() {
   pinMode(ButtonA.buttonPin, INPUT_PULLUP);
   pinMode(ButtonB.buttonPin, INPUT_PULLUP);
   // 0000000000000 //
-  pinMode(buzzerPin,OUTPUT);
+  pinMode(BUZZER_PIN,OUTPUT);
   // 000000 //
 
   tft.reset();
@@ -210,9 +76,21 @@ void setup() {
 
 
   // 000000000 //
-  SetUpCharacter(&Player, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, BLUE);
+  SetUpCharacter(&Player, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, BLUE, nullptr);
   fillTriangle_Helper_CHAR(&Player, NULL);
   // 0000000000 //
+
+  struct TriangleData enemyTriRelationshipData;
+  enemyTriRelationshipData.x0 = 0;
+  enemyTriRelationshipData.y0 = 0;
+  enemyTriRelationshipData.x1 = -15;
+  enemyTriRelationshipData.y1 = -15;
+  enemyTriRelationshipData.x2 = -30;
+  enemyTriRelationshipData.y2 = 0;
+
+  CharacterStruct Enemy1;
+  SetUpCharacter(&Enemy1, SCREEN_WIDTH/2, SCREEN_HEIGHT/3.5, RED, &enemyTriRelationshipData);
+  fillTriangle_Helper_CHAR(&Enemy1, NULL);
 
 }
 
@@ -291,7 +169,7 @@ void Render(float deltaTime) { // draw the graphics based on the Update changes
   else { // i need a stopgap / Debounce for this
     //ButtonA.buttonDebounce = false; 
     tft.fillCircle(SCREEN_WIDTH - (CircleA.radius * 1.5), SCREEN_HEIGHT - (CircleA.radius * 1.5) - 60, CircleA.radius, GRAY);
-    digitalWrite(buzzerPin,LOW);
+    digitalWrite(BUZZER_PIN,LOW);
   };
 
   if (ButtonB.buttonState == LOW && ButtonB.buttonDebounce == false) {
