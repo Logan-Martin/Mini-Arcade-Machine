@@ -40,6 +40,12 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 
 #### Latest Update:
 
+9/12/2026:
+- Added DrawTriangle Helper function
+- Changed Character Struct code to use Struct within Struct for ease of access to TriangeData, CenterPosition, and streamline eventual enemy behavior and graphics drawing
+- Deleted previous code format and uploaded important historical files to OldCode folder within the Code folder
+   - Note: the Arduino IDE doesn't support Git workflow within the app itself. GitHub Desktop or another flow is possible, w/ .gitignore, but this may break parts of this existing repo formatting. 
+
 8/27/2026:
 - Since the last update, I've decided to make a Galaga-like space shooter. A simple game, an MVP really, so that I can focus on my academics and jobs now that I'm back at university.
    - It's good I did this project also because my C-Programming and Game Platform Analysis classes are introducing things I've learned here. Examples: memory management and macros [#define].
