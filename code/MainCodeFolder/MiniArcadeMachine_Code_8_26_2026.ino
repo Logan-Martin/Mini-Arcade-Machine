@@ -42,8 +42,9 @@ JoystickStruct joystick;
 CharacterStruct Player; 
 CharacterStruct enemyList[1];
 
-Bullet listOfBullets[8];
-int sizeOfBulletList = 8;
+//Bullet listOfBullets[8];
+//int sizeOfBulletList = 8;
+Bullet bullet_Clone;
 // 00000000000000000000000000 //
 
 
@@ -92,6 +93,10 @@ void setup() {
   SetUpCharacter(&Enemy1, SCREEN_WIDTH/2, SCREEN_HEIGHT/3.5, RED, &enemyTriRelationshipData);
   fillTriangle_Helper_CHAR(&Enemy1, NULL);
 
+  //
+  CreateBulletShapeData(&bullet_Clone, Player.triangleData.x1, Player.triangleData.y1, 10, 2);
+  fillSquare_Helper_Bullet(&bullet_Clone, RED);
+
 }
 
 void Input() { // reads player inputs
@@ -137,12 +142,7 @@ void Render(float deltaTime) { // draw the graphics based on the Update changes
   // flicker: https://forum.pjrc.com/index.php?threads/anyway-to-stop-flickering-during-update-on-ili9341-display.59926/
   // It's a timing? issue. Maybe add frame buffer.
   
-  fillTriangle_Helper_CHAR(&Player, NULL);
-  fillTriangle_Helper_CHAR(&Player, NULL);
-  fillTriangle_Helper_CHAR(&Player, NULL);
-  fillTriangle_Helper_CHAR(&Player, NULL);
-  fillTriangle_Helper_CHAR(&Player, NULL);
-  fillTriangle_Helper_CHAR(&Player, NULL);
+  fillTriHelper_CHAR_MultiInOneCall(&Player, NULL);
   //delayMicroseconds(deltaTime);
   fillTriangle_Helper_CHAR(&Player, BACKGROUND_COLOR);
 
@@ -157,12 +157,6 @@ void Render(float deltaTime) { // draw the graphics based on the Update changes
     //ButtonA.buttonDebounce = true; 
     tft.fillCircle(SCREEN_WIDTH - (CircleA.radius * 1.5), SCREEN_HEIGHT - (CircleA.radius * 1.5) - 60, CircleA.radius, RED);
     PlayAudioChirp(25);
-
-    Bullet bullet_Clone;
-    bullet_Clone.lineData.pointA.xPos = Player.triangleData.x1;
-    bullet_Clone.lineData.pointA.yPos = Player.triangleData.y1;
-    SetPointB_OfLine_BasedOnLength_And_PointA(bullet_Clone.lineData, 10);
-    tft.drawLine(bullet_Clone.lineData.pointA.xPos, bullet_Clone.lineData.pointA.yPos, bullet_Clone.lineData.pointB.xPos, bullet_Clone.lineData.pointB.yPos, RED);
 
     //Player.score -= 1;
   }

@@ -17,9 +17,19 @@ struct LineData {
   Point pointB;
 };
 
+struct SquareData {
+  Point points[4];
+  int16_t width = 0;
+  int16_t height = 0;
+
+  uint16_t color = GREEN;
+};
+
 // (!?) if I do char [] list = "hello"; I don't need to declare the size of the list of chars
 
-void SetPointB_OfLine_BasedOnLength_And_PointA(LineData &lineToChange, int16_t lengthGiven);
+void SetPointB_OfLine_BasedOnLength_And_PointA(LineData *lineToChange, int16_t lengthGiven);
+void CenterSquare_BasedOnThickness(SquareData *squareData);
+struct SquareData CreateSquareFromLineDataAndThickness(LineData lineData, int thickness);
 
 struct CircleData {
   int16_t xPos = 0;
@@ -50,5 +60,7 @@ Point GetCenterPoint(TriangleData &triangle);
 void Init_CenterTriangleBasedOnCenterPoint(TriangleData &triangle, Point newCenterPoint);
 void UpdateTrianglePoints(TriangleData &triangle, float xChange, float yChange);
 void fillTriangle_Helper_CHAR(struct CharacterStruct *charStruct, uint16_t color);
+void fillTriHelper_CHAR_MultiInOneCall(struct CharacterStruct *charStruct, uint16_t color);
+void fillSquare_Helper_Bullet(struct Bullet *bulletGiven, uint16_t color);
 
 #endif
