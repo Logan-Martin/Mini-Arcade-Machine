@@ -45,9 +45,10 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 
 #### Latest Update:
 9/14/2026:
-- For mini arcade machine do a hitbox system with rect to rect collision check in update
-- For bullet check if not active then update to allow
-- look at mega man to see their three shooting tech thing for memory stuff
+- Got advice for collision & bullet management:
+  - Do a hitbox system with rect to rect collision check in update. This is opposed to triangle and rect collision.
+  - For bullet, check if not active then update to allow use of the inactive bullet. Already have a list of Bullet Struct w/ 8 slots of memory allocated.
+  - Look at Mega Man's three bullet shooting tech for memory-sensitive bullet logic
 
 9/13/2026:
 - Reorganized all code into multiple Header and .cpp files 
