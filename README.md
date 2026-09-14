@@ -57,6 +57,9 @@ Soldering fume extractor not required, but can be good to have as well as a stan
   - Bug: bullets still do not draw on the screen. I suspect an issue with the math, specifically on the corners and how the shape is drawn, or with memory accessing/storing data properly. 
 - Dev Note on GitHub & code upload: I realized that I can simply upload all files with GitHub and they automatically track differences if the same name instead of manually updating them. This will be my workflow from now for this project.
 
+<details>
+<summary>Previous Updates [Click to Open Dropdown]</summary>
+  
 9/12/2026:
 - Added DrawTriangle Helper function
 - Changed Character Struct code to use Struct within Struct for ease of access to TriangeData, CenterPosition, and streamline eventual enemy behavior and graphics drawing
@@ -77,8 +80,6 @@ Soldering fume extractor not required, but can be good to have as well as a stan
 - After looking for ways to connect two sides of a breadboard, I found a bunch of male-to-female wires that are pre-stuck together. I've decided to rewire the LCD with these as it's a direct connection and much cleaner.
 - Update [6:10]: It WORKS! The rewiring was annoying, but made it all nicer to work with. The wires fit mostly in the box. I had to sand some more friction fit holes, and had some more annoyances with screwing in each wall, but the final result didn't take too long. I made sure to test each button and the screen each wall I added just to be sure. Now to learn graphics or overall drawing on the screen to make something run on the machine.
 
-<details>
-<summary>Previous Updates [Click to Open Dropdown]</summary>
 8/17/2026:
 - Did some physical assembly, thankfully finding many terminal stacking headers to make the job of connecting pins easier.
 - Encountered an issue with ButtonB not working and the screen. ButtonA and the Joystick worked perfect. Turns out I can't use Digital Pins 20 and 21 for buttons on the Arduino Mega for the buttons as they are for I2C [SDA, SDL] communication. After rewiring the digital pins of the buttons to 30 and 32, both buttons now work.
